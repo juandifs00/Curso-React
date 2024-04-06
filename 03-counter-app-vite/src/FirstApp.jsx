@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const getResult = (a, b) => {
   return (a*b)/(a+b);
@@ -19,3 +20,8 @@ export const FirstApp = ( {title, subTitle} ) => {
   )
 }
   
+
+FirstApp.propTypes = {
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.number
+}
