@@ -4,7 +4,7 @@ const getResult = (a, b) => {
   return (a*b)/(a+b);
 }
 
-export const FirstApp = ( {title, subTitle} ) => {
+export const FirstApp = ( {title, subTitle, name} ) => {
 
   //console.log(props);
 
@@ -16,6 +16,7 @@ export const FirstApp = ( {title, subTitle} ) => {
       {/*<code> { JSON.stringify(newMessaje) } </code>*/}
       <p>Soy algo que salío aquí</p>
       <p>{subTitle}</p>
+      <p>{name}</p>
     </>
   )
 }
@@ -29,5 +30,5 @@ FirstApp.propTypes = {
 FirstApp.defaultProps = {
   name: 'Juan Diego RG',
   subTitle: 'No hay un subtítulo',
-  title: 'No hay un título',
+  //title: 'No hay un título',
 }
