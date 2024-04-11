@@ -1,40 +1,34 @@
 import { useState } from "react"
 import { AddCategory } from "./components/AddCategory"
+import { GifGrid } from "./components/GifGrid"
 
 export const GifApp = () => {
 
-    const [categories, setCategories] = useState( [ 'Fast & Furious' , 'Disney'] )
+    const [categories, setCategories] = useState( [ 'Fast & Furious' ] )
 
-    // console.log(categories)
+    const onAddCategory = ( newCategory ) => {
 
-    const onAddCategory = () => {
-
-        setCategories( [ 'Rainbow Six', ...categories ] )
-        
-        // setCategories( cat => [ ...cat, 'Rainbow Six' ] )
-
+        if ( categories.includes( newCategory ) ) return
+    
+        setCategories( [ newCategory, ...categories ] )
     }
 
   return (
-    <>
-    {/* Título */}
+  <>
     <h1>GifApp</h1>
 
-    {/* Input */}
-    <AddCategory setCategories={ setCategories }/>
-
-
-    {/* Listado de Gifs */}
+    <AddCategory 
+        onNewValue = { (event) =>  onAddCategory(event) }
+    />
     
-    <ol>
-        {
-            categories.map( category => {
-                return <li key = { category }> {category} </li>
-            } )
-        }
-    </ol>
-
-        {/* Gif Item */}
+    {
+        categories.map( ( category ) => ( 
+            <GifGrid 
+                key={category} 
+                category={category} 
+            /> 
+        ))
+    }
 
     </>
   )
