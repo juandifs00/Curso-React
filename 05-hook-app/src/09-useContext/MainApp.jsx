@@ -1,3 +1,4 @@
+import UserProvider from "./context/UserProvider";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
@@ -6,7 +7,7 @@ import Navbar from "./Navbar";
 
 const MainApp = () => {
   return (
-    <>
+    <UserProvider>
       {/* <h1>MainApp</h1> */}
       <Navbar />
       <hr />
@@ -19,7 +20,7 @@ const MainApp = () => {
         {/* <Route path="/*" element={<HomePage />} /> */}
         <Route path="/*" element={<Navigate to="/about" />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 };
 
