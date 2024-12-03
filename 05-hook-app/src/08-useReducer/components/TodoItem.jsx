@@ -6,6 +6,7 @@ const TodoItem = ({ state, onDeleteTodo, onToggleTodo }) => {
           state.done ? "text-decoration-line-through" : ""
         }`}
         onDoubleClick={() => onToggleTodo(state.id)}
+        aria-label="span"
       >
         {state.description}
       </span>
