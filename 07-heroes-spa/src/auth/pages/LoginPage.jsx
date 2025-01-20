@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/Authcontext";
 
 const LoginPage = () => {
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // const onLogin = () => {
@@ -10,6 +13,8 @@ const LoginPage = () => {
   // };
 
   const onLogin = () => {
+    login("Juandiego");
+
     navigate("/", { replace: true });
   };
 
