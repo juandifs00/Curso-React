@@ -13,9 +13,11 @@ const LoginPage = () => {
   // };
 
   const onLogin = () => {
+    const lastPath = localStorage.getItem("lastPath") || "/";
+
     login("Juandiego");
 
-    navigate("/", { replace: true });
+    navigate(lastPath, { replace: true });
   };
 
   return (
