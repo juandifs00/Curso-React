@@ -1,12 +1,10 @@
 import { useLocation, useNavigate } from "react-router-dom";
-// import queryString from "query-string";
+import queryString from "query-string";
 import useForm from "../../hooks/useForm";
 import HeroCard from "../components/HeroCard";
 import { getHeroesByName } from "../helpers/getHeroesByName";
 
 const SearchPage = () => {
-  const queryString = require("query-string");
-
   const navigate = useNavigate();
   const location = useLocation();
 
