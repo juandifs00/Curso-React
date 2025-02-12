@@ -36,7 +36,7 @@ const SearchPage = () => {
         <div className="col-5">
           <h4>Buscar heroe</h4>
           <hr />
-          <form onSubmit={onSearchSubmit}>
+          <form onSubmit={onSearchSubmit} aria-label="form">
             <input
               type="text"
               placeholder="Buscar un heroe"
