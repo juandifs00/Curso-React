@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import JournalApp from "./JournalApp.jsx";
+import { BrowserRouter } from "react-router-dom";
 import "./styles.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <JournalApp />
+    <BrowserRouter future={{ v7_startTransition: true }}>
+      <JournalApp />
+    </BrowserRouter>
   </StrictMode>
 );
