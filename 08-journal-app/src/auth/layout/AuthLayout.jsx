@@ -12,7 +12,7 @@ const AuthLayout = ({ children, title = "" }) => {
     >
       <Grid
         item
-        className="'box-shadow"
+        className="box-shadow"
         xs={3}
         sx={{
           width: { md: 450 },
