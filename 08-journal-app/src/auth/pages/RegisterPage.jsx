@@ -46,8 +46,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <AuthLayout title="Crear cuenta">
-      <h1>FormValid: {isFormValid ? "✅" : "❌"}</h1>
+    <AuthLayout title={`Crear cuenta ${isFormValid ? "✅" : "❌"}`}>
       <form onSubmit={onSubmit}>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
