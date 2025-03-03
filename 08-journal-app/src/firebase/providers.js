@@ -24,8 +24,6 @@ export const signInWithGoogle = async () => {
       photoURL,
       uid,
     };
-
-    console.log(user);
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -60,7 +58,7 @@ export const registerUserWithEmailPassword = async ({
       displayName,
     };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       ok: false,
       errorMessage: error.message,
