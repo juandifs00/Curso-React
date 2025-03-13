@@ -29,7 +29,7 @@ const NoteView = () => {
   }, [formState]);
 
   useEffect(() => {
-    if (savedMessage.lengt > 0) {
+    if (savedMessage.length > 0) {
       Swal.fire("Nota actializada!", savedMessage, "success");
     }
   }, [savedMessage]);
