@@ -44,8 +44,15 @@ export const journalSlice = createSlice({
       state.savedMessage = `${action.payload.title}, actualizado correctamente.`;
     },
 
+    // setPhotosToActiveNotes: (state, action) => {
+    //   state.active.imageUrls = [...action.active.imageUrls, ...action.payload];
+    //   state.isSaving = false;
+    // },
+
     setPhotosToActiveNotes: (state, action) => {
-      state.active.imageUrls = [...action.active.imageUrls, ...action.payload];
+      if (!state.active.imageUrls) state.active.imageUrls = []; // Inicializa imageUrls si es undefined
+
+      state.active.imageUrls = [...state.active.imageUrls, ...action.payload];
       state.isSaving = false;
     },
 
