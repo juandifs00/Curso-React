@@ -5,6 +5,7 @@ import {
   savingNewNote,
   setActiveNote,
   setNotes,
+  setPhotosToActiveNotes,
   setSaving,
   updatedNote,
 } from "./journalSlice";
@@ -63,6 +64,13 @@ export const startSaveNote = () => {
 export const startUploadingFiles = (files = []) => {
   return async (dispatch) => {
     dispatch(setSaving());
-    await fileUpload(files[0]);
+    // await fileUpload(files[0]);
+    const fileUploadPromises = [];
+    for (const file of files) {
+      fileUploadPromises.push(fileUpload(file));
+    }
+
+    const photosUrls = await Promise.all(fileUploadPromises);
+    dispatch(setPhotosToActiveNotes(photosUrls));
   };
 };
