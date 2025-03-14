@@ -9,7 +9,7 @@ import "sweetalert2/dist/sweetalert2.css";
 import useForm from "../../hooks/useForm";
 import ImageGallery from "../components/ImageGallery";
 import { setActiveNote } from "../../store/journal/journalSlice";
-import { startSaveNote } from "../../store/journal/thunks";
+import { startSaveNote, startUploadingFiles } from "../../store/journal/thunks";
 
 const NoteView = () => {
   const dispatch = useDispatch();
@@ -47,9 +47,7 @@ const NoteView = () => {
   const onFileInputChange = ({ target }) => {
     if (target.files === 0) return;
 
-    console.log("¡Subiendo archivos!");
-
-    // dispatch(startUploadingFiles(target.files));
+    dispatch(startUploadingFiles(target.files));
   };
 
   return (

@@ -9,6 +9,7 @@ import {
   updatedNote,
 } from "./journalSlice";
 import { loadNotes } from "../../helpers/loadNotes";
+import fileUpload from "../../helpers/fileUpload";
 
 export const startNewNote = () => {
   return async (dispatch, getState) => {
@@ -56,5 +57,12 @@ export const startSaveNote = () => {
     await setDoc(docRef, noteToFirestore, { merge: true });
 
     dispatch(updatedNote(note));
+  };
+};
+
+export const startUploadingFiles = (files = []) => {
+  return async (dispatch) => {
+    dispatch(setSaving());
+    await fileUpload(files[0]);
   };
 };
