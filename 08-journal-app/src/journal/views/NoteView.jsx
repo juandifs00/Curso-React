@@ -121,7 +121,7 @@ const NoteView = () => {
       </Grid>
 
       {/* Galería de imagenes */}
-      <ImageGallery />
+      <ImageGallery images={note.imageUrls} />
     </Grid>
   );
 };
