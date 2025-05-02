@@ -1,5 +1,6 @@
 const fileUpload = async (file) => {
-  if (!file) throw new Error("No hay ningún archivo por subir.");
+  // if (!file) throw new Error("No hay ningún archivo por subir.");
+  if (!file) return null;
 
   const cloudUrl = "https://api.cloudinary.com/v1_1/dojcdl2nt/upload";
   const formData = new FormData();
@@ -18,9 +19,11 @@ const fileUpload = async (file) => {
 
     const cloudResp = await resp.json();
     return cloudResp.secure_url;
+
   } catch (error) {
-    console.error(error);
-    throw new Error(error.message);
+    // console.error(error);
+    // throw new Error(error.message);
+    return null;
   }
 };
 
