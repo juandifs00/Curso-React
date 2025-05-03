@@ -1,5 +1,13 @@
+import { v2 as cloudinary } from 'cloudinary';
 import { fetch } from "whatwg-fetch";
 import fileUpload from "../../src/helpers/fileUpload";
+
+cloudinary.config({
+    cloud_name: 'dojcdl2nt',
+    api_key: '533165946873297',
+    api_secret: 'kcNa05dGSvy_g7VkC9vmmcCJs9s',
+    secure: true
+});
 
 describe('Pruebas en fileUpload', () => {
 
@@ -12,6 +20,18 @@ describe('Pruebas en fileUpload', () => {
         const url = await fileUpload(file);
         expect(typeof url).toBe('string');
         expect(url.includes('https://')).toBe(true);
+
+        const segments = url.split('/');
+        const imageId = segments[segments.length - 1].replace('.jpg', '');
+        await cloudinary.api.delete_resources([imageId], { resource_type: 'image' });
+
     });
+
+    test('Debe de retornar null', async () => {
+        const file = new File([], 'foto.jpg');
+
+        const url = await fileUpload(file);
+        expect(url).toBe(null);
+    })
 
 })
