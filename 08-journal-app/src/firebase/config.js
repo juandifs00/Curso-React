@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore/lite";
+import { getEnvironments } from "../helpers/getEnvironments";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,9 +25,10 @@ const firebaseConfig = {
   projectId: "journalappbd-testing",
   storageBucket: "journalappbd-testing.firebasestorage.app",
   messagingSenderId: "370745253776",
-  appId: "1:370745253776:web:7169a58b339051613c1d15"
+  appId: "1:370745253776:web:7169a58b339051613c1d15",
 };
-
+const env = getEnvironments;
+console.log(env);
 
 // Initialize Firebase
 export const Firebaseapp = initializeApp(firebaseConfig);
