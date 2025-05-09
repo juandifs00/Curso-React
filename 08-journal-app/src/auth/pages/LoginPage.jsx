@@ -45,6 +45,7 @@ const LoginPage = () => {
   return (
     <AuthLayout title="Ingreso">
       <form
+        aria-label="submit-form"
         onSubmit={onSubmit}
         className="animate__animated animate__fadeIn animate__faster"
       >
@@ -68,6 +69,7 @@ const LoginPage = () => {
               placeholder="contraseña"
               fullWidth
               name="password"
+              inputProps={{ "data-testid": "password" }}
               value={password}
               onChange={onInputChange}
             ></TextField>
