@@ -1,5 +1,10 @@
-const CalendarApp = () => {
-  return <div>CalendarApp</div>;
-};
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./router";
 
-export default CalendarApp;
+export const CalendarApp = () => {
+  return (
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+  );
+};
